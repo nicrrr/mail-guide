@@ -3,6 +3,16 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/mail-guide.iml" filepath="$PROJECT_DIR$/.idea/mail-guide.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wm-yongo-parent/wm-yongo-parent.iml" filepath="$PROJECT_DIR$/wm-yongo-parent/wm-yongo-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wm-yongo-parent/yougo-admin-web/yougo-admin-web.iml" filepath="$PROJECT_DIR$/wm-yongo-parent/yougo-admin-web/yougo-admin-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wm-yongo-parent/yougo-biz-service/yougo-biz-service.iml" filepath="$PROJECT_DIR$/wm-yongo-parent/yougo-biz-service/yougo-biz-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wm-yongo-parent/yougo-biz-web/yougo-biz-web.iml" filepath="$PROJECT_DIR$/wm-yongo-parent/yougo-biz-web/yougo-biz-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wm-yongo-parent/yougo-core/yougo-core.iml" filepath="$PROJECT_DIR$/wm-yongo-parent/yougo-core/yougo-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wm-yongo-parent/yougo-entity/yougo-entity.iml" filepath="$PROJECT_DIR$/wm-yongo-parent/yougo-entity/yougo-entity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wm-yongo-parent/yougo-eureka-server/yougo-eureka-server.iml" filepath="$PROJECT_DIR$/wm-yongo-parent/yougo-eureka-server/yougo-eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wm-yongo-parent/yougo-inter/yougo-inter.iml" filepath="$PROJECT_DIR$/wm-yongo-parent/yougo-inter/yougo-inter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wm-yongo-parent/yougo-user/yougo-user.iml" filepath="$PROJECT_DIR$/wm-yongo-parent/yougo-user/yougo-user.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wm-yongo-parent/yougo-util/yougo-util.iml" filepath="$PROJECT_DIR$/wm-yongo-parent/yougo-util/yougo-util.iml" />
     </modules>
   </component>
 </project>
