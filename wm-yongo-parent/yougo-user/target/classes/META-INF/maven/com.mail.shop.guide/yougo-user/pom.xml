@@ -14,6 +14,16 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <dependencies>
+  	<!-- spring-cloud启动 -->
+	  	<dependency>
+	        <groupId>org.springframework.cloud</groupId>  
+	        <artifactId>spring-cloud-starter</artifactId>
+	    </dependency>
+	    <!-- 作为注册中心被发现 -->
+	    <dependency>
+	        <groupId>org.springframework.cloud</groupId>  
+	        <artifactId>spring-cloud-starter-eureka-server</artifactId>
+	    </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>

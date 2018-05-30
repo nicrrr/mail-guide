@@ -35,6 +35,10 @@
 	      <scope>test</scope>
 	    </dependency>
 	    <dependency>
+    		<groupId>redis.clients</groupId>
+    		<artifactId>jedis</artifactId>
+		</dependency>
+	    <dependency>
 	    	<groupId>com.mail.shop.guide</groupId>
 	    	<artifactId>yougo-entity</artifactId>
 	    	<version>1.0.0</version>
@@ -49,5 +53,7 @@
 	    	<artifactId>yougo-core</artifactId>
 	    	<version>1.0.0</version>
 	    </dependency>
+	  
+	  
   </dependencies>
 </project>
