@@ -6,8 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
-import yougo.core.enums.ServiceEnums;
-import yougo.entity.BaseResult;
 import yougo.entity.test.User;
 import yougo.util.client.RestTemplateUtil;
 import yougo.util.mq.ActiveMqUtil;
