@@ -17,6 +17,10 @@ import yougo.util.redis.RedisUtil;
 @RequestMapping("web")
 public class RestTempleTestController {
 	
+	private static final Jedis jedis = new Jedis();
+	
+	private static final long expired = 1000;//1秒超时
+	
 	/**
 	 * 
 	 * description: get请求方式，String.class为responseType
@@ -91,4 +95,43 @@ public class RestTempleTestController {
 //		return result.getModel().toString();
 		return "success";
 	}
+	
+	@RequestMapping("redisLock")
+	@ResponseBody
+	public String redisLock(){
+		boolean lockFlag = true;
+		//循环等待拿锁
+        while(lockFlag){
+            if(getLock(jedis,"o2o")){
+            	lockFlag = false; 	
+            }
+        }
+        //处理业务
+        System.out.println("do something");
+        try {
+			Thread.sleep(300);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+        //释放锁
+        releaseLock(jedis, "o2o");
+		return "success";
+	}
+	
+	//获取锁
+	private boolean getLock(Jedis jedis, String lock){
+		boolean flag = false;
+		long value = System.currentTimeMillis() + expired + 1;        
+        long acquired = jedis.setnx(lock, String.valueOf(value));  
+        jedis.expire(lock, 1);//设置1秒超时  
+        if(acquired == 1){
+        	flag = true;
+        }
+        return flag;
+	}
+	
+	//释放锁  
+    private void releaseLock(Jedis jedis,String lock) {      
+            jedis.del(lock);   
+    }
 }
