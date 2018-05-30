@@ -35,9 +35,9 @@
 	      <scope>test</scope>
 	    </dependency>
 	    <dependency>
-    <groupId>redis.clients</groupId>
-    <artifactId>jedis</artifactId>
-</dependency>
+    		<groupId>redis.clients</groupId>
+    		<artifactId>jedis</artifactId>
+		</dependency>
 	    <dependency>
 	    	<groupId>com.mail.shop.guide</groupId>
 	    	<artifactId>yougo-entity</artifactId>

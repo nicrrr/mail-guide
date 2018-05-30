@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
+import redis.clients.jedis.Jedis;
 import yougo.entity.test.User;
 import yougo.util.client.RestTemplateUtil;
 import yougo.util.mq.ActiveMqUtil;
