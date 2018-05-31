@@ -47,7 +47,7 @@ public class AMQConfig {
 	 * @author nicr
 	 * date: 2018年5月18日 下午2:23:25
 	 */
-	@Bean
+//	@Bean
 	public ActiveMQConnectionFactory amqConnectionFactory(){
 		ActiveMQConnectionFactory activeMQConnectionFactory = new ActiveMQConnectionFactory(user, password, url);
 		//允许关闭安全检查

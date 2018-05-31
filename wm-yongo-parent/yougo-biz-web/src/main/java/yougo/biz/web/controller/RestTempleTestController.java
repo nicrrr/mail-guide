@@ -13,7 +13,7 @@ import yougo.util.mq.ActiveMqUtil;
 import yougo.util.redis.RedisUtil;
 
 @Controller
-@RequestMapping("web")
+@RequestMapping("rweb")
 public class RestTempleTestController {
 	
 	private static final Jedis jedis = new Jedis();
