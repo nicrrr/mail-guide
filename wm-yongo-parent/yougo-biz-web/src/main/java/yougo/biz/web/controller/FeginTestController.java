@@ -7,10 +7,19 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import yougo.inter.interfaces.TestInterface;
 
+/**
+ * 
+ * description:fegin 方式调用
+ * date: 2018年5月31日 下午6:16:37
+ * @author nicr
+ */
 @Controller
 @RequestMapping("fweb")
 public class FeginTestController {
 	
+	/**
+	 * 被调用的接口服务
+	 */
 	@Autowired
 	TestInterface testInterface;
 	
