@@ -96,6 +96,8 @@
   	<module>yougo-core</module>
   	
   	<module>yougo-inter</module>
+  	<module>yougo-exception</module>
+  	<module>yougo-log-factory</module>
   </modules>
   <properties>
   	<java.version>1.8</java.version>
