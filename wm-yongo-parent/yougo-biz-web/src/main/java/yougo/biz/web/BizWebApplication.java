@@ -11,8 +11,8 @@ import org.springframework.cloud.netflix.feign.EnableFeignClients;
  * date: 2018年5月16日 下午3:22:53
  * @author nicr
  */
-@EnableEurekaClient
-@EnableFeignClients(basePackages ="yougo.inter")
+//@EnableEurekaClient
+//@EnableFeignClients(basePackages ="yougo.inter")
 //@EnableFeignClients
 @SpringBootApplication
 //@ComponentScan(basePackages ={"yougo"})
