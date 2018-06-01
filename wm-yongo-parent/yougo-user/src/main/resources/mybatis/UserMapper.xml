@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="yougo.user.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="yougo.entity.po.UserPO">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="phone_no" jdbcType="VARCHAR" property="phoneNo" />
+    <result column="sex" jdbcType="CHAR" property="sex" />
+    <result column="age" jdbcType="VARCHAR" property="age" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="grade" jdbcType="CHAR" property="grade" />
+    <result column="type" jdbcType="CHAR" property="type" />
+    <result column="id_card_type" jdbcType="CHAR" property="idCardType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, phone_no, sex, age, address, grade, type, id_card_type
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ucs_user
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from ucs_user
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="yougo.entity.po.UserPO">
+    insert into ucs_user (id, name, phone_no, 
+      sex, age, address, grade, 
+      type, id_card_type)
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{phoneNo,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=CHAR}, #{age,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{grade,jdbcType=CHAR}, 
+      #{type,jdbcType=CHAR}, #{idCardType,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="yougo.entity.po.UserPO">
+    insert into ucs_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="phoneNo != null">
+        phone_no,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="age != null">
+        age,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="grade != null">
+        grade,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="idCardType != null">
+        id_card_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNo != null">
+        #{phoneNo,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=CHAR},
+      </if>
+      <if test="age != null">
+        #{age,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null">
+        #{grade,jdbcType=CHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=CHAR},
+      </if>
+      <if test="idCardType != null">
+        #{idCardType,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="yougo.entity.po.UserPO">
+    update ucs_user
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNo != null">
+        phone_no = #{phoneNo,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=CHAR},
+      </if>
+      <if test="age != null">
+        age = #{age,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null">
+        grade = #{grade,jdbcType=CHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=CHAR},
+      </if>
+      <if test="idCardType != null">
+        id_card_type = #{idCardType,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="yougo.entity.po.UserPO">
+    update ucs_user
+    set name = #{name,jdbcType=VARCHAR},
+      phone_no = #{phoneNo,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=CHAR},
+      age = #{age,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      grade = #{grade,jdbcType=CHAR},
+      type = #{type,jdbcType=CHAR},
+      id_card_type = #{idCardType,jdbcType=CHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="yougo.entity.po.UserPO">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="phone_no" jdbcType="VARCHAR" property="phoneNo" />
+    <result column="sex" jdbcType="CHAR" property="sex" />
+    <result column="age" jdbcType="VARCHAR" property="age" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="grade" jdbcType="CHAR" property="grade" />
+    <result column="type" jdbcType="CHAR" property="type" />
+    <result column="id_card_type" jdbcType="CHAR" property="idCardType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, phone_no, sex, age, address, grade, type, id_card_type
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ucs_user
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from ucs_user
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="yougo.entity.po.UserPO">
+    insert into ucs_user (id, name, phone_no, 
+      sex, age, address, grade, 
+      type, id_card_type)
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{phoneNo,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=CHAR}, #{age,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{grade,jdbcType=CHAR}, 
+      #{type,jdbcType=CHAR}, #{idCardType,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="yougo.entity.po.UserPO">
+    insert into ucs_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="phoneNo != null">
+        phone_no,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="age != null">
+        age,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="grade != null">
+        grade,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="idCardType != null">
+        id_card_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNo != null">
+        #{phoneNo,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=CHAR},
+      </if>
+      <if test="age != null">
+        #{age,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null">
+        #{grade,jdbcType=CHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=CHAR},
+      </if>
+      <if test="idCardType != null">
+        #{idCardType,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="yougo.entity.po.UserPO">
+    update ucs_user
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNo != null">
+        phone_no = #{phoneNo,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=CHAR},
+      </if>
+      <if test="age != null">
+        age = #{age,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null">
+        grade = #{grade,jdbcType=CHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=CHAR},
+      </if>
+      <if test="idCardType != null">
+        id_card_type = #{idCardType,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="yougo.entity.po.UserPO">
+    update ucs_user
+    set name = #{name,jdbcType=VARCHAR},
+      phone_no = #{phoneNo,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=CHAR},
+      age = #{age,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      grade = #{grade,jdbcType=CHAR},
+      type = #{type,jdbcType=CHAR},
+      id_card_type = #{idCardType,jdbcType=CHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="yougo.entity.po.UserPO">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="phone_no" jdbcType="VARCHAR" property="phoneNo" />
+    <result column="sex" jdbcType="CHAR" property="sex" />
+    <result column="age" jdbcType="VARCHAR" property="age" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="grade" jdbcType="CHAR" property="grade" />
+    <result column="type" jdbcType="CHAR" property="type" />
+    <result column="id_card_type" jdbcType="CHAR" property="idCardType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, phone_no, sex, age, address, grade, type, id_card_type
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ucs_user
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from ucs_user
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="yougo.entity.po.UserPO">
+    insert into ucs_user (id, name, phone_no, 
+      sex, age, address, grade, 
+      type, id_card_type)
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{phoneNo,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=CHAR}, #{age,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{grade,jdbcType=CHAR}, 
+      #{type,jdbcType=CHAR}, #{idCardType,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="yougo.entity.po.UserPO">
+    insert into ucs_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="phoneNo != null">
+        phone_no,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="age != null">
+        age,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="grade != null">
+        grade,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="idCardType != null">
+        id_card_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNo != null">
+        #{phoneNo,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=CHAR},
+      </if>
+      <if test="age != null">
+        #{age,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null">
+        #{grade,jdbcType=CHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=CHAR},
+      </if>
+      <if test="idCardType != null">
+        #{idCardType,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="yougo.entity.po.UserPO">
+    update ucs_user
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNo != null">
+        phone_no = #{phoneNo,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=CHAR},
+      </if>
+      <if test="age != null">
+        age = #{age,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null">
+        grade = #{grade,jdbcType=CHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=CHAR},
+      </if>
+      <if test="idCardType != null">
+        id_card_type = #{idCardType,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="yougo.entity.po.UserPO">
+    update ucs_user
+    set name = #{name,jdbcType=VARCHAR},
+      phone_no = #{phoneNo,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=CHAR},
+      age = #{age,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      grade = #{grade,jdbcType=CHAR},
+      type = #{type,jdbcType=CHAR},
+      id_card_type = #{idCardType,jdbcType=CHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

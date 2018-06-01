@@ -22,6 +22,7 @@ import yougo.util.mq.ActiveMqUtil;
  */
 @Configuration
 @EnableAutoConfiguration
+//用于自动注入JmsTemplate
 //@EnableJms
 public class AMQConfig {
 	
@@ -47,6 +48,7 @@ public class AMQConfig {
 	 * @author nicr
 	 * date: 2018年5月18日 下午2:23:25
 	 */
+	//加上@bean启动会报错：多创建一个bean的实例
 	@Bean
 	public ActiveMQConnectionFactory amqConnectionFactory(){
 		ActiveMQConnectionFactory activeMQConnectionFactory = new ActiveMQConnectionFactory(user, password, url);
