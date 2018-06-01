@@ -6,6 +6,13 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+/**
+ * 
+ * Title: BizWebInterceptor 
+ * Description: web入口拦截器
+ * @author nicr  
+ * @date 2018年6月1日
+ */
 public class BizWebInterceptor extends HandlerInterceptorAdapter{
 	
 	/**
