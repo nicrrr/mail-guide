@@ -11,13 +11,18 @@
     <context id="MysqlContext" targetRuntime="MyBatis3">
         <property name="beginningDelimiter" value="`"/>
         <property name="endingDelimiter" value="`"/>
+        <property name="javaFileEncoding" value="UTF-8"/>
         
-        <plugin type="org.mybatis.generator">
+        <!-- <plugin type="org.mybatis.generator">
             <property name="mappers" value="yougo-core/yougo.core.dao.BaseDao"></property>
-        </plugin>
+        </plugin> -->
 
         <!-- 取消代码的自动注释，增加数据库表字段的注释 -->
-        <commentGenerator type="yougo-core/yougo.core.MyCommentGenerator">
+        <!-- <commentGenerator type="yougo-core/yougo.core.MyCommentGenerator"> -->
+        <commentGenerator type="yougo.core.util.MyCommentGenerator">
+        	<property name="javaFileEncoding" value="UTF-8"/>
+        	<property name="suppressDate" value="true"/>
+        	<property name="suppressAllComments" value="true"/>
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/cloud"
