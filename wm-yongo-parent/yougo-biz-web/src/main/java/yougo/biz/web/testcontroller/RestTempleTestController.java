@@ -1,4 +1,4 @@
-package yougo.biz.web.controller;
+package yougo.biz.web.testcontroller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
