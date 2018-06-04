@@ -21,7 +21,7 @@ public class BizWebInterceptor extends HandlerInterceptorAdapter{
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		checkUrl(request);
+//		checkUrl(request);
 		return true;
 	}
 	
@@ -43,6 +43,7 @@ public class BizWebInterceptor extends HandlerInterceptorAdapter{
 			throws Exception {
 		// TODO Auto-generated method stub
 		super.afterCompletion(request, response, handler, ex);
+		checkUrl(request);
 	}
 
 	private boolean checkUrl(HttpServletRequest request) {

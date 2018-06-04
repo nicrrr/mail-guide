@@ -6,6 +6,8 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+import yougo.biz.web.util.interceptor.BizWebInterceptor;
+
 @Configuration
 @EnableAutoConfiguration
 public class WebMvcConfig extends WebMvcConfigurerAdapter{
@@ -24,7 +26,8 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter{
 	 */
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
-		
+		//加入自定义拦截器
+		registry.addInterceptor(new BizWebInterceptor());
 	}
 
 }
