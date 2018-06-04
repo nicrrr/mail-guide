@@ -1,4 +1,4 @@
-package org.yougo.util;
+package yougo.util;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
