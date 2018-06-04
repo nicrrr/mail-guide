@@ -5,8 +5,10 @@ import java.util.TreeMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import yougo.entity.po.UcsUser;
 import yougo.inter.interfaces.TestInterface;
 
 /**
@@ -22,19 +24,21 @@ public class FeginTestController {
 	/**
 	 * 被调用的接口服务
 	 */
-//	@Autowired
-//	TestInterface testInterface;
+	@Autowired
+	TestInterface testInterface;
 	
-//	@RequestMapping("test")
-//	@ResponseBody
-//	public String test() {
-//		return testInterface.test();
-//	}
+	@RequestMapping("test")
+	@ResponseBody
+	public String test() {
+		return testInterface.test(1);
+	}
 	
-	public static void main(String[] args) {
-		TreeMap<String, String> tm = new TreeMap<>();
-		tm.put("first", "value");
-		System.out.println(tm.get("first"));
+	@RequestMapping("test2")
+	@ResponseBody
+	public String test2() {
+		UcsUser ucsUser = new UcsUser();
+		ucsUser.setName("GTR");
+		return testInterface.test2(ucsUser);
 	}
 
 }

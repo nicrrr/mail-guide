@@ -1,7 +1,13 @@
 package yougo.inter.interfaces;
 
 import org.springframework.cloud.netflix.feign.FeignClient;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import yougo.entity.po.UcsUser;
 
 /**
  * 
@@ -12,7 +18,36 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @FeignClient("biz-service")
 public interface TestInterface {
 	
-	@RequestMapping("/service/test")
-	public String test();
+	/**
+	 * 
+	 * description:get方法传参必须给参数加上@RequestParam("xx"),xx为被调用接口的参数名称(被调用接口上可以不加@RequestParam)
+	 * @param i
+	 * @return
+	 * @author nicr
+	 * date: 2018年6月4日 下午3:01:47
+	 */
+//	@RequestMapping(value = "/service/test", method = RequestMethod.GET)
+//	@ResponseBody
+//	public String test(@RequestParam("i") Integer i);
+	
+	@GetMapping(value = "/service/test")
+	@ResponseBody
+	public String test(@RequestParam("i") Integer i);
+	
+	/**
+	 * 
+	 * description:post请求两边必须都加上@RequestBody(复合类型使用)
+	 * @param ucsUser
+	 * @return
+	 * @author nicr
+	 * date: 2018年6月4日 下午3:18:05
+	 */
+//	@RequestMapping(value = "/service/test2", method = RequestMethod.POST)
+//	@ResponseBody
+//	public String test2(@RequestBody UcsUser ucsUser);
+	
+	@PostMapping(value = "/service/test2")
+	@ResponseBody
+	public String test2(@RequestBody UcsUser ucsUser);
 
 }

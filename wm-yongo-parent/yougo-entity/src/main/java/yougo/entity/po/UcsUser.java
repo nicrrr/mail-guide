@@ -1,6 +1,6 @@
 package yougo.entity.po;
 
-public class UserPO {
+public class UcsUser {
     /**
      * 用户id
      */
