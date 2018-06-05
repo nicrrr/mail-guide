@@ -15,7 +15,7 @@ public class RestTempleTestController {
 	
 	@GetMapping("getForEntity1")
 	@ResponseBody
-	public String getForEntity(int id, String name){
+	public String getForEntity(String id, String name){
 		return "id="+id+"name="+name;
 	}
 	

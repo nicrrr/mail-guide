@@ -49,7 +49,7 @@ public class AMQConfig {
 	 * date: 2018年5月18日 下午2:23:25
 	 */
 	//加上@bean启动会报错：多创建一个bean的实例
-	@Bean
+//	@Bean
 	public ActiveMQConnectionFactory amqConnectionFactory(){
 		ActiveMQConnectionFactory activeMQConnectionFactory = new ActiveMQConnectionFactory(user, password, url);
 		//允许关闭安全检查
