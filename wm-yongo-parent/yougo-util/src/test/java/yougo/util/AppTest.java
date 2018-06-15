@@ -1,38 +1,29 @@
 package yougo.util;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import yougo.util.cglib.CglibProxy;
+import yougo.util.cglib.Proxyed;
+import yougo.util.jdkproxy.TestAction;
+import yougo.util.jdkproxy.TestInterface;
+import yougo.util.proxy.JDKDynamicProxyFactory;
 
 /**
- * Unit test for simple App.
+ * 
+ * description:代理测试
+ * date: 2018年6月15日 下午3:36:26
+ * @author nicr
  */
-public class AppTest 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
-    }
-
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
-
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
-    }
+public class AppTest {
+	
+	public static void main(String[] args) {
+		//jdk代理
+		TestAction ta = new TestAction();
+		TestInterface ti = (TestInterface) JDKDynamicProxyFactory.getProxy(ta);
+		ti.dosomething();
+		
+		//cglib代理
+		CglibProxy cp = new CglibProxy();
+		Proxyed p = (Proxyed) cp.getProxy(Proxyed.class);
+		p.method();
+	}
+	
 }

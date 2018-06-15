@@ -46,6 +46,7 @@ import com.alibaba.fastjson.JSON;
 
 import redis.clients.jedis.Jedis;
 import yougo.entity.test.User;
+import yougo.inter.annotation.MethodForAop;
 import yougo.util.client.RestTemplateUtil;
 import yougo.util.mq.ActiveMqUtil;
 import yougo.util.redis.RedisUtil;
@@ -310,4 +311,13 @@ public class RestTempleTestController {
 				.build();
 		return config;
 	}
+	
+	@MethodForAop
+	@RequestMapping("log")
+	@ResponseBody
+	public Integer log() {
+		System.out.println("111");
+		return 999;
+	}
+	
 }
