@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import yougo.entity.po.UcsUser;
+import yougo.entity.po.UcsUserPO;
 
 /**
  * 
@@ -37,7 +37,7 @@ public interface TestInterface {
 	/**
 	 * 
 	 * description:post请求两边必须都加上@RequestBody(复合类型使用)
-	 * @param ucsUser
+	 * @param ucsUserPO
 	 * @return
 	 * @author nicr
 	 * date: 2018年6月4日 下午3:18:05
@@ -48,6 +48,6 @@ public interface TestInterface {
 	
 	@PostMapping(value = "/service/test2")
 	@ResponseBody
-	public String test2(@RequestBody UcsUser ucsUser);
+	public String test2(@RequestBody UcsUserPO ucsUserPO);
 
 }

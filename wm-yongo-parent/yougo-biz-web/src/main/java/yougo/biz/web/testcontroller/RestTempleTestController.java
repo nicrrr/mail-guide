@@ -59,6 +59,8 @@ public class RestTempleTestController {
 	
 	private static final long expired = 1000;//1秒超时
 	
+	private static int i = 10;
+	
 	/**
 	 * 
 	 * description: get请求方式，String.class为responseType
@@ -134,26 +136,36 @@ public class RestTempleTestController {
 		return "success";
 	}
 	
+	/**
+	 * 
+	 * description:setnx方式实现redis分布式锁[数据库锁和zookeeper也可以实现分布式锁]，还可以用set和evil方式实现加锁解锁。
+	 * @param id
+	 * @return
+	 * @author nicr
+	 * date: 2018年6月15日 下午4:44:00
+	 */
 	@RequestMapping("redisLock")
 	@ResponseBody
-	public String redisLock(){
+	public String redisLock(String id){
 		boolean lockFlag = true;
+		String result = jedis.set("00999876", id, "NX", "PX", 3000);
 		//循环等待拿锁
-        while(lockFlag){
-            if(getLock(jedis,"o2o")){
-            	lockFlag = false; 	
-            }
-        }
-        //处理业务
-        System.out.println("do something");
-        try {
-			Thread.sleep(300);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-        //释放锁
-        releaseLock(jedis, "o2o");
-		return "success";
+//        while(lockFlag){
+//            if(getLock(jedis,"00999876")){
+//            	//处理业务
+//            	System.out.println("do something");
+//            	i--;
+//            	try {
+//            		Thread.sleep(5000);
+//            	} catch (InterruptedException e) {
+//            		e.printStackTrace();
+//            	}
+//            	lockFlag = false;
+//            	//释放锁
+//            	releaseLock(jedis, "00999876");
+//            }
+//        }
+		return result;
 	}
 	
 	//获取锁
@@ -161,7 +173,7 @@ public class RestTempleTestController {
 		boolean flag = false;
 		long value = System.currentTimeMillis() + expired + 1;        
         long acquired = jedis.setnx(lock, String.valueOf(value));  
-        jedis.expire(lock, 1);//设置1秒超时  
+        jedis.expire(lock, 1);//设置1秒超时
         if(acquired == 1){
         	flag = true;
         }
@@ -312,6 +324,13 @@ public class RestTempleTestController {
 		return config;
 	}
 	
+	/**
+	 * 
+	 * description:@MethodForAop为自定义接口，设置为aop切入的切入点
+	 * @return
+	 * @author nicr
+	 * date: 2018年6月15日 下午3:42:26
+	 */
 	@MethodForAop
 	@RequestMapping("log")
 	@ResponseBody

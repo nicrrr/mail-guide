@@ -12,9 +12,8 @@ import org.springframework.context.annotation.ComponentScan;
  * date: 2018年5月16日 下午3:22:53
  * @author nicr
  */
-@EnableEurekaClient
-@EnableFeignClients(basePackages ="yougo.inter")
-//@EnableFeignClients
+//@EnableEurekaClient
+//@EnableFeignClients(basePackages ="yougo.inter")
 @SpringBootApplication
 @ComponentScan(basePackages ={"yougo"})
 public class BizWebApplication {

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import yougo.entity.po.UcsUser;
+import yougo.entity.po.UcsUserPO;
 
 /**
  * 
@@ -26,8 +26,8 @@ public class TestController {
 	
 	@RequestMapping("test2")
 	@ResponseBody
-	public String test2(@RequestBody UcsUser ucsUser){
-		return "biz-service-TestController-post+" + ucsUser.getName();
+	public String test2(@RequestBody UcsUserPO ucsUserPO){
+		return "biz-service-TestController-post+" + ucsUserPO.getName();
 	}
 
 }
