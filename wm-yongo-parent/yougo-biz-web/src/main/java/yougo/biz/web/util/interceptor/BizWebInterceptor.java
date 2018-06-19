@@ -22,7 +22,7 @@ public class BizWebInterceptor extends HandlerInterceptorAdapter{
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 //		checkUrl(request);
-		System.out.println(request.getRequestURL());
+//		System.out.println(request.getRequestURL());
 		return true;
 	}
 	

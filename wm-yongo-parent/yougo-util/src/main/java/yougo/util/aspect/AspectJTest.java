@@ -1,5 +1,6 @@
 package yougo.util.aspect;
 
+import org.apache.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
@@ -7,6 +8,8 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
+
+import yougo.util.transfer.GetTransferInfo;
 
 /**
  * 
@@ -17,6 +20,8 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class AspectJTest {
+	
+	private Logger log = Logger.getLogger(AspectJTest.class);
 	
 	/**
 	 * 
@@ -37,7 +42,7 @@ public class AspectJTest {
 	 */
 	@Before(value = "cut()")
 	public void before(final JoinPoint joinPoint) {
-		System.out.println("this is aop before");
+		log.info("------the " + joinPoint.getTarget().getClass().getSimpleName() + " is start------");
 	}
 	
 	/**
@@ -49,7 +54,7 @@ public class AspectJTest {
 	 */
 	@After(value = "cut()")
 	public void after(final JoinPoint joinPoint) {
-		System.out.println("this is aop after");
+		log.info("------the " + joinPoint.getTarget().getClass().getSimpleName() + " is end--------");
 	}
 	
 	/**
@@ -62,7 +67,6 @@ public class AspectJTest {
 	 */
 	@AfterReturning(returning="rvt", value="cut()")
     public void afterReturning(final JoinPoint joinPoint, Object rvt) {
-		System.out.println("this is aop afterReturning. the return is : "+rvt);
     }
 	
 }

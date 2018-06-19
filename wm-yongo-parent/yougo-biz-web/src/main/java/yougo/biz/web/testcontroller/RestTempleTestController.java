@@ -4,18 +4,11 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.net.ssl.SSLContext;
 
-import org.apache.http.Header;
-import org.apache.http.HeaderElement;
 import org.apache.http.HttpEntity;
-import org.apache.http.NameValuePair;
-import org.apache.http.ParseException;
 import org.apache.http.client.config.RequestConfig;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
@@ -31,11 +24,10 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
-import org.apache.http.message.BasicHeader;
-import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.util.EntityUtils;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -47,6 +39,8 @@ import com.alibaba.fastjson.JSON;
 import redis.clients.jedis.Jedis;
 import yougo.entity.test.User;
 import yougo.inter.annotation.MethodForAop;
+import yougo.log.factory.logFactory.ILogFactory;
+import yougo.log.factory.logFactory.impl.LogFactory;
 import yougo.util.client.RestTemplateUtil;
 import yougo.util.mq.ActiveMqUtil;
 import yougo.util.redis.RedisUtil;
@@ -54,6 +48,10 @@ import yougo.util.redis.RedisUtil;
 @Controller
 @RequestMapping("rweb")
 public class RestTempleTestController {
+	
+	private Logger log = Logger.getLogger(RestTempleTestController.class);
+	
+	private ILogFactory logger = LogFactory.getLogFactory(RestTempleTestController.class);
 	
 	private static final Jedis jedis = new Jedis();
 	
@@ -335,7 +333,8 @@ public class RestTempleTestController {
 	@RequestMapping("log")
 	@ResponseBody
 	public Integer log() {
-		System.out.println("111");
+		log.info("123");
+		logger.showObjectInfo("234");
 		return 999;
 	}
 	
