@@ -57,8 +57,6 @@ public class RestTempleTestController {
 	
 	private static final long expired = 1000;//1秒超时
 	
-	private static int i = 10;
-	
 	/**
 	 * 
 	 * description: get请求方式，String.class为responseType
@@ -337,5 +335,7 @@ public class RestTempleTestController {
 		logger.showObjectInfo("234");
 		return 999;
 	}
+	
+	
 	
 }

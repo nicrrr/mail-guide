@@ -14,8 +14,8 @@ import org.springframework.context.annotation.ComponentScan;
  * @author nicr
  */
 @MapperScan(basePackages = {"yougo.biz.service.dao"})
-//@EnableEurekaClient
-//@EnableFeignClients
+@EnableEurekaClient
+@EnableFeignClients
 @SpringBootApplication
 @ComponentScan(basePackages ={ "yougo"})
 public class BizServiceApplication {

@@ -6,7 +6,7 @@ import org.slf4j.spi.LocationAwareLogger;
 import yougo.log.factory.logFactory.ILogFactory;
 import yougo.log.factory.logFactory.logger.Slf4jLocationLogger;
 import yougo.log.factory.logFactory.logger.Slf4jLogger;
-import yougo.util.transfer.GetTransferInfo;
+import yougo.log.factory.logFactory.util.GetTransferInfo;
 
 /**
  * 

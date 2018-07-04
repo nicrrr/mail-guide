@@ -44,4 +44,10 @@ public class RestTempleTestController {
 	public String testInsert() {
 		return testService.insertTest()+"";
 	}
+	
+	@GetMapping("testUpdate")
+	@ResponseBody
+	public String testUpdate() {
+		return String.valueOf(testService.updateTest());
+	}
 }

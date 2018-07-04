@@ -49,5 +49,17 @@ public interface TestInterface {
 	@PostMapping(value = "/service/test2")
 	@ResponseBody
 	public String test2(@RequestBody UcsUserPO ucsUserPO);
+	
+	/**
+	 * 
+	 * description:用于测试分布式锁
+	 * @param i
+	 * @return
+	 * @author nicr
+	 * date: 2018年6月21日 下午3:14:39
+	 */
+	@GetMapping(value = "/service/testUpdate")
+	@ResponseBody
+	public String testRedisLock();
 
 }

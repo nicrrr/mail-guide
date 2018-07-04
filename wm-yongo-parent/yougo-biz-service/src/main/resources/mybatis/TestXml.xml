@@ -5,4 +5,8 @@
   	insert into ucs_user (id, name, phone_no, sex, age, address, grade, type, id_card_type)
   	values (#{id}, #{name}, #{phoneNo}, #{sex}, #{age}, #{address}, #{grade}, #{type}, #{idCardType})
   </insert>
+  
+  <update id="updateTest">
+  	update ucs_user set age = age-1 where id = 1
+  </update>
 </mapper>

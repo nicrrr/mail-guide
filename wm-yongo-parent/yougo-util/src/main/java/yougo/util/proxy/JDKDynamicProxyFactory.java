@@ -2,8 +2,6 @@ package yougo.util.proxy;
 
 import java.lang.reflect.Proxy;
 
-import yougo.util.config.ApplicationContentConfig;
-
 /**
  * 
  * description:动态代理工厂 date: 2018年6月4日 下午3:27:44

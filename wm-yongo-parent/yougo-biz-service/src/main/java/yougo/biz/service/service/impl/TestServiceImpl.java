@@ -21,4 +21,9 @@ public class TestServiceImpl implements TestService{
 		return testMapper.insertTest(ucsUserPO);
 	}
 
+	@Override
+	public int updateTest() {
+		return testMapper.updateTest();
+	}
+
 }
