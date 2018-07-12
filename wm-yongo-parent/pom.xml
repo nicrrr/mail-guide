@@ -48,7 +48,8 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<scope>provided</scope>
+			<!--idea需要注释此行-->
+			<!--<scope>provided</scope>-->
 		</dependency>
 		<!-- mybatis 自动生成po，mapper插件依赖 -->
 		<dependency>
