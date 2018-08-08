@@ -1,6 +1,6 @@
 package yougo.user.dao;
 
-import yougo.entity.po.UcsUser;
+import yougo.entity.po.UcsUserPO;
 
 public interface UcsUserMapper {
     /**
@@ -13,29 +13,29 @@ public interface UcsUserMapper {
      *
      * @mbg.generated 2018-06-04
      */
-    int insert(UcsUser record);
+    int insert(UcsUserPO record);
 
     /**
      *
      * @mbg.generated 2018-06-04
      */
-    int insertSelective(UcsUser record);
+    int insertSelective(UcsUserPO record);
 
     /**
      *
      * @mbg.generated 2018-06-04
      */
-    UcsUser selectByPrimaryKey(String id);
+    UcsUserPO selectByPrimaryKey(String id);
 
     /**
      *
      * @mbg.generated 2018-06-04
      */
-    int updateByPrimaryKeySelective(UcsUser record);
+    int updateByPrimaryKeySelective(UcsUserPO record);
 
     /**
      *
      * @mbg.generated 2018-06-04
      */
-    int updateByPrimaryKey(UcsUser record);
+    int updateByPrimaryKey(UcsUserPO record);
 }

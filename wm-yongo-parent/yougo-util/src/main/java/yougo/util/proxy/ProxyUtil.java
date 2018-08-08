@@ -13,7 +13,6 @@ public class ProxyUtil implements InvocationHandler {
 
 	@Override
 	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-		System.out.println("dynamic proxy do somthings");
 		return method.invoke(realObject, args);
 	}
 

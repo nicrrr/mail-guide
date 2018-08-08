@@ -1,21 +1,8 @@
 package yougo.biz.web.testcontroller;
 
-import java.io.IOException;
-import java.nio.charset.Charset;
-import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.net.ssl.SSLContext;
-
-import org.apache.http.Header;
-import org.apache.http.HeaderElement;
+import com.alibaba.fastjson.JSON;
 import org.apache.http.HttpEntity;
-import org.apache.http.NameValuePair;
-import org.apache.http.ParseException;
 import org.apache.http.client.config.RequestConfig;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
@@ -31,29 +18,37 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
-import org.apache.http.message.BasicHeader;
-import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.util.EntityUtils;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
-
-import com.alibaba.fastjson.JSON;
-
 import redis.clients.jedis.Jedis;
 import yougo.entity.test.User;
 import yougo.inter.annotation.MethodForAop;
+import yougo.log.factory.logFactory.ILogFactory;
+import yougo.log.factory.logFactory.impl.LogFactory;
 import yougo.util.client.RestTemplateUtil;
 import yougo.util.mq.ActiveMqUtil;
 import yougo.util.redis.RedisUtil;
 
+import javax.net.ssl.SSLContext;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
+
 @Controller
 @RequestMapping("rweb")
 public class RestTempleTestController {
+	
+	private Logger log = Logger.getLogger(RestTempleTestController.class);
+	
+	private ILogFactory logger = LogFactory.getLogFactory(RestTempleTestController.class);
 	
 	private static final Jedis jedis = new Jedis();
 	
@@ -134,26 +129,36 @@ public class RestTempleTestController {
 		return "success";
 	}
 	
+	/**
+	 * 
+	 * description:setnx方式实现redis分布式锁[数据库锁和zookeeper也可以实现分布式锁]，还可以用set和evil方式实现加锁解锁。
+	 * @param id
+	 * @return
+	 * @author nicr
+	 * date: 2018年6月15日 下午4:44:00
+	 */
 	@RequestMapping("redisLock")
 	@ResponseBody
-	public String redisLock(){
+	public String redisLock(String id){
 		boolean lockFlag = true;
+		String result = jedis.set("00999876", id, "NX", "PX", 3000);
 		//循环等待拿锁
-        while(lockFlag){
-            if(getLock(jedis,"o2o")){
-            	lockFlag = false; 	
-            }
-        }
-        //处理业务
-        System.out.println("do something");
-        try {
-			Thread.sleep(300);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-        //释放锁
-        releaseLock(jedis, "o2o");
-		return "success";
+//        while(lockFlag){
+//            if(getLock(jedis,"00999876")){
+//            	//处理业务
+//            	System.out.println("do something");
+//            	i--;
+//            	try {
+//            		Thread.sleep(5000);
+//            	} catch (InterruptedException e) {
+//            		e.printStackTrace();
+//            	}
+//            	lockFlag = false;
+//            	//释放锁
+//            	releaseLock(jedis, "00999876");
+//            }
+//        }
+		return result;
 	}
 	
 	//获取锁
@@ -161,7 +166,7 @@ public class RestTempleTestController {
 		boolean flag = false;
 		long value = System.currentTimeMillis() + expired + 1;        
         long acquired = jedis.setnx(lock, String.valueOf(value));  
-        jedis.expire(lock, 1);//设置1秒超时  
+        jedis.expire(lock, 1);//设置1秒超时
         if(acquired == 1){
         	flag = true;
         }
@@ -312,12 +317,22 @@ public class RestTempleTestController {
 		return config;
 	}
 	
+	/**
+	 * 
+	 * description:@MethodForAop为自定义接口，设置为aop切入的切入点
+	 * @return
+	 * @author nicr
+	 * date: 2018年6月15日 下午3:42:26
+	 */
 	@MethodForAop
 	@RequestMapping("log")
 	@ResponseBody
 	public Integer log() {
-		System.out.println("111");
+		log.info("123");
+		logger.showObjectInfo("234");
 		return 999;
 	}
+	
+	
 	
 }

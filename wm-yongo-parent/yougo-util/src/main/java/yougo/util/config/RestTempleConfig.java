@@ -25,7 +25,7 @@ public class RestTempleConfig {
 	 * date: 2018年6月4日 上午11:57:06
 	 */
 	@Bean
-	public RestTemplate getRestTemple(){
+	public static RestTemplate getRestTemple(){
 		RestTemplate restTemplate = new RestTemplate ();
 		RestTemplateUtil.setRestTemplate(restTemplate);
 		return restTemplate;
